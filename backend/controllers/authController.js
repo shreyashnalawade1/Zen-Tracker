@@ -1,8 +1,8 @@
 const util = require('util');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
-const User = require('../models/userModel');
 
+const User = require('../models/userModel');
 /**
  * used for creating token by reciving the payload
  * **/
