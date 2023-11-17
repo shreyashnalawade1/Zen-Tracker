@@ -7,6 +7,8 @@ const projectPhaseRouter = require('./routes/projectPhaseRoutes');
 const resourceRouter = require('./routes/resourceRoutes');
 const resourceGroupRouter = require('./routes/resourceGroupRoutes');
 const teamRouter = require('./routes/teamRoutes');
+const chatRouter = require('./routes/chatRoutes');
+const messageRouter = require('./routes/messageRoutes');
 
 const app = express();
 app.use(express.json({ limit: '10kb' }));
@@ -20,5 +22,6 @@ app.use('/api/v1/project-phases', projectPhaseRouter);
 app.use('/api/v1/resources', resourceRouter);
 app.use('/api/v1/resource-groups', resourceGroupRouter);
 app.use('/api/v1/teams', teamRouter);
-
+app.use('/api/v1/chats', chatRouter);
+app.use('/api/v1/messages', messageRouter);
 module.exports = app;

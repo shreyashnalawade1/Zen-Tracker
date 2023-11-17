@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
+// const { PassThrough } = require('stream');
 
 const validateUserName = function (val) {
   return (
@@ -79,6 +80,7 @@ userSchema.methods.correctPassword = async function (
 };
 
 userSchema.methods.ifPasswordChangedAfterIssue = function (issueStamp) {
+  if (!this.passwordChangedAt) return false;
   // console.log(issueDate);
   const changedTimestamp = parseInt(
     this.passwordChangedAt.getTime() / 1000,
