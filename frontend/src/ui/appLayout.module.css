@@ -1,0 +1,14 @@
+.main {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: 0.7fr 9.3fr;
+}
+
+.menu {
+  margin: 0.5em;
+  border-radius: 20px;
+  background-color: #251d3a;
+}

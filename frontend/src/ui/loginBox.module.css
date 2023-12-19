@@ -1,0 +1,24 @@
+.loginBox {
+  width: 70%;
+  height: 60%;
+  justify-content: center;
+  display: flex;
+  /* border: 1px solid black; */
+  /* text-align: center; */
+  border-radius: 1em;
+  background-color: white;
+  box-shadow: 5px 10px 20px black;
+}
+
+.loginImg__illustrationLogin {
+  height: 100%;
+}
+.loginImg__formContainer {
+  /* width: ; */
+  padding-top: 2em;
+  min-width: 50%;
+}
+.titleCenter {
+  width: 100%;
+  text-align: center;
+}
