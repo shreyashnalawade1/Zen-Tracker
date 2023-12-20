@@ -21,10 +21,6 @@ const taskSchema = mongoose.Schema({
   deadLine: {
     type: Date,
     required: [true, 'Please provide a valid deadline for the task '],
-    validate: [
-      (val) => val.getTime() >= Date.now(),
-      'Please provide a valide deadline value',
-    ],
   },
   project: {
     type: mongoose.Schema.Types.ObjectId,

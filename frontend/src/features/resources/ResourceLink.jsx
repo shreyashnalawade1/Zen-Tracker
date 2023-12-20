@@ -1,6 +1,5 @@
 import styles from "./resourceLLink.module.css";
 export default function ResourceLink({ data, no }) {
-  console.log(data?.createdAt);
   return (
     <div
       className={styles.linkContainer}
