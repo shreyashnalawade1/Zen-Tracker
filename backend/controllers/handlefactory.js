@@ -37,13 +37,22 @@ exports.getAll = function (Model) {
   };
 };
 
-exports.getOne = function (Model) {
+exports.getOne = function (Model, populateOpt) {
   return async function (req, res, next) {
     const { id } = req.params;
     if (!id) {
       return next('Please provide a valid req Id');
     }
-    const item = await Model.findById(id);
+    let item;
+    if (populateOpt) {
+      item = await Model.findById(id).populate({
+        path: populateOpt.path,
+        strictPopulate: false,
+        select: populateOpt.select,
+      });
+    } else {
+      item = await Model.findById(id);
+    }
     if (!item) {
       return next('No Item is found with the Id');
     }

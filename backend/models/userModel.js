@@ -3,12 +3,6 @@ const validator = require('validator');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 
-const validateUserName = function (val) {
-  return (
-    (!validator.isEmpty(val) ||
-      !validator.matches(val, '^[a-zA-Z0-9_.-]*$')) !== false
-  );
-};
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -20,12 +14,7 @@ const userSchema = new mongoose.Schema({
     unique: true,
     validate: [validator.isEmail, 'Please provide a valid email'],
   },
-  userName: {
-    type: String,
-    required: [true, 'Please provide valid a userName'],
-    unique: true,
-    validate: [validateUserName, 'Please Provide a valid User Name'],
-  },
+
   photo: {
     type: String,
     default: `default-${Math.floor(Math.random() * (10 - 1) + 1)}.jpg`,

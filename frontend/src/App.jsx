@@ -7,11 +7,13 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import AppLayout from "./ui/AppLayout";
 import Tasks from "./pages/Tasks";
+import Task from "./pages/Task";
+import CreateTask from "./features/tasks/CreateTask";
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 10 * 1000,
+      staleTime: 0,
     },
   },
 });
@@ -26,8 +28,14 @@ export default function App() {
           <Routes>
             <Route path="login" element={<Login />}></Route>
             <Route path="signup" element={<Signup />}></Route>
+
             <Route path="/" element={<AppLayout />}>
+              <Route
+                path="create-task"
+                element={<CreateTask></CreateTask>}
+              ></Route>
               <Route path="/tasks/:projectId" element={<Tasks></Tasks>}></Route>
+              <Route path="/task/:taskId" element={<Task></Task>}></Route>
             </Route>
           </Routes>
         </BrowserRouter>
