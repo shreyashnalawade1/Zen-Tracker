@@ -9,6 +9,8 @@ import AppLayout from "./ui/AppLayout";
 import Tasks from "./pages/Tasks";
 import Task from "./pages/Task";
 import CreateTask from "./features/tasks/CreateTask";
+import ResourceHub from "./pages/ResourceHub";
+import ResourceGroup from "./pages/ResourceGroup";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -30,6 +32,14 @@ export default function App() {
             <Route path="signup" element={<Signup />}></Route>
 
             <Route path="/" element={<AppLayout />}>
+              <Route
+                path="resources/:projectId"
+                element={<ResourceHub></ResourceHub>}
+              ></Route>
+              <Route
+                path="resource/:groupId"
+                element={<ResourceGroup></ResourceGroup>}
+              ></Route>
               <Route
                 path="create-task"
                 element={<CreateTask></CreateTask>}
