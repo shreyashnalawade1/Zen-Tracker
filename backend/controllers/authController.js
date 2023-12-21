@@ -88,6 +88,8 @@ exports.protect = async function (req, res, next) {
   let token;
   if (req.cookies.jwt) {
     token = req.cookies.jwt;
+  } else {
+    token = req.query.token;
   }
 
   if (!token) {
@@ -192,4 +194,13 @@ exports.updatePassword = async function (req, res, next) {
 
   //   create new token adnd and send it
   createSendToken(user, 200, req, res);
+};
+
+exports.current = async function (req, res, next) {
+  res.status(200).json({
+    status: 'success',
+    data: {
+      user: req.user,
+    },
+  });
 };
