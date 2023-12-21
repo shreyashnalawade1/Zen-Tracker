@@ -1,0 +1,52 @@
+.resourceContainer {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  padding: 1rem 3rem;
+  justify-content: space-between;
+}
+
+.resourceGroupContainer {
+  flex-grow: 1;
+  /* height: 90%; */
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 1.5rem;
+  overflow-y: scroll;
+}
+.btnContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+.btnContainer button {
+  padding: 0.1rem 1.2rem;
+  background-color: transparent;
+  margin-top: 1rem;
+  font-size: 3rem;
+  font-weight: bold;
+  border-radius: 60%;
+}
+.createForm {
+  width: 80vw;
+  display: flex;
+
+  /* height: 80vh; */
+  border-radius: 20px;
+  border: 1px solid black;
+  /* background-color: black; */
+  background-color: whitesmoke;
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  z-index: 100;
+  padding: 1rem;
+  transform: translate(-50%, -50%);
+}
+.createForm button {
+  margin-top: 0px;
+}
+
+.createForm input {
+  margin: 1rem;
+  width: 20rem;
+}

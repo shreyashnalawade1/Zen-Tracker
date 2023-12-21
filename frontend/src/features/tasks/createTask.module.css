@@ -1,0 +1,29 @@
+.createContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.form {
+  display: flex;
+  background-color: #faf9f6;
+  border: 1px solid black;
+  box-shadow: 2px 4px 10px black;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 60%;
+  height: 90%;
+  border-radius: 20px;
+  align-items: center;
+  padding: 2rem;
+}
+
+.form textarea,
+input,
+select {
+  width: 70%;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 0.4rem;
+}

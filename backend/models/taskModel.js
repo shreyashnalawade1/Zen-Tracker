@@ -21,14 +21,23 @@ const taskSchema = mongoose.Schema({
   deadLine: {
     type: Date,
     required: [true, 'Please provide a valid deadline for the task '],
-    validate: [
-      (val) => val.getTime() >= Date.now(),
-      'Please provide a valide deadline value',
-    ],
   },
-
+  project: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: [true, 'A task must be associated with a project'],
+  },
+  state: {
+    type: String,
+    enum: ['todo', 'doing', 'done'],
+    default: 'todo',
+  },
   tags: {
     type: [String],
+  },
+  assigned: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: [true, 'A task must be associated with a user'],
+    ref: 'User',
   },
 });
 

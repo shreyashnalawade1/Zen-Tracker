@@ -23,7 +23,9 @@ const createSendToken = function (user, statusCode, req, res) {
         Number(process.env.JWT_COOKIE_EXPIRES_IN) * 24 * 60 * 60 * 1000,
     ),
     // todo check what the secure attributes does
-    secure: req.secure || req.headers['x-forwarded-proto'] === 'https',
+    // secure: req.secure || req.headers['x-forwarded-proto'] === 'https',
+    secure: true,
+    sameSite: 'None',
   });
   user.password = undefined;
   res.status(statusCode).json({
@@ -44,7 +46,6 @@ exports.signup = async function (req, res, next) {
     email: req.body.email,
     password: req.body.password,
     passwordConfirm: req.body.passwordConfirm,
-    userName: req.body.userName,
   });
   // todo rember to send email
   createSendToken(newUser, 201, req, res);
@@ -55,7 +56,7 @@ exports.signup = async function (req, res, next) {
  * **/
 
 exports.login = async function (req, res, next) {
-  const { email, userName, password } = req.body;
+  const { email, password } = req.body;
 
   //   todo create a error class
   // 1. check if email and password exit
@@ -63,9 +64,7 @@ exports.login = async function (req, res, next) {
     return next('Please provide a valid email and Password');
   }
   //   2. check if user exits && password is correct
-  const user = await User.findOne({ $or: [{ email }, { userName }] }).select(
-    '+password',
-  );
+  const user = await User.findOne({ $or: [{ email }] }).select('+password');
   if (!user || !(await user.correctPassword(password, user.password))) {
     return next('Incorrect email or password');
   }
@@ -77,7 +76,7 @@ exports.login = async function (req, res, next) {
 exports.logout = function (req, res, next) {
   res.cookie('jwt', 'loggedout', {
     expires: new Date(Date.now() + 10 * 1000),
-    httpOnly: true,
+    httpOnly: false,
   });
   res.status(200).json({
     status: 'success',
@@ -89,6 +88,8 @@ exports.protect = async function (req, res, next) {
   let token;
   if (req.cookies.jwt) {
     token = req.cookies.jwt;
+  } else {
+    token = req.query.token;
   }
 
   if (!token) {
@@ -193,4 +194,13 @@ exports.updatePassword = async function (req, res, next) {
 
   //   create new token adnd and send it
   createSendToken(user, 200, req, res);
+};
+
+exports.current = async function (req, res, next) {
+  res.status(200).json({
+    status: 'success',
+    data: {
+      user: req.user,
+    },
+  });
 };
