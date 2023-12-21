@@ -26,9 +26,9 @@ export default function Projects() {
       <h1> {`${greeting}, ${user?.data?.user?.name}!`} </h1>
       <h2>Active Projects</h2>
       <div className={styles.projectsContainer}>
-        {projects?.data?.items?.map((el) => {
+        {projects?.data?.items?.map((el, i) => {
           console.log(el);
-          return <ProjectBox key={el._id} data={el}></ProjectBox>;
+          return <ProjectBox key={el._id} data={el} no={i + 1}></ProjectBox>;
         })}
       </div>
 

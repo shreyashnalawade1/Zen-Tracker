@@ -12,6 +12,7 @@ import CreateTask from "./features/tasks/CreateTask";
 import ResourceHub from "./pages/ResourceHub";
 import ResourceGroup from "./pages/ResourceGroup";
 import Projects from "./pages/Projects";
+import Chats from "./pages/Chats";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -45,6 +46,7 @@ export default function App() {
                 path="resource/:groupId"
                 element={<ResourceGroup></ResourceGroup>}
               ></Route>
+              <Route path="chats" element={<Chats></Chats>}></Route>
               <Route
                 path="create-task"
                 element={<CreateTask></CreateTask>}
