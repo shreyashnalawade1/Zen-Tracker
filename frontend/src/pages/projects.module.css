@@ -1,0 +1,60 @@
+.projectContainer {
+  height: 100vh;
+  padding: 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.projectsContainer {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  background-color: #faf9f6;
+  margin-top: 1rem;
+  min-height: 60vh;
+  overflow-y: scroll;
+  padding: 2rem;
+  border: 2px solid black;
+  border-radius: 20px;
+  box-shadow: 1px 2px 10px black;
+}
+.btnContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.createForm {
+  width: 80vw;
+  height: 60vh;
+  border-radius: 20px;
+  border: 1px solid black;
+  background-color: whitesmoke;
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  z-index: 100;
+  padding: 1rem;
+  display: flex;
+  transform: translate(-50%, -50%);
+}
+.createForm button {
+  margin-top: 0px;
+  margin-top: 2rem;
+  max-width: 15rem;
+}
+
+.btnContainer button {
+}
+
+.btnContainer span {
+}
+.form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form input {
+  margin-top: 2rem;
+}

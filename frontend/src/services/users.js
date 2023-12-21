@@ -21,3 +21,12 @@ export const loginApi = async function (data) {
   const resData = await res.json();
   return resData;
 };
+
+export const getCurrentUserApi = async function () {
+  const token = localStorage.getItem("token");
+  const res = await fetch(
+    `http://localhost:8000/api/v1/users/currentUser?token=${token}`
+  );
+  const data = res.json();
+  return data;
+};
