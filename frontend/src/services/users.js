@@ -30,3 +30,18 @@ export const getCurrentUserApi = async function () {
   const data = res.json();
   return data;
 };
+
+export const getSearchUser = async function (keyWord) {
+  const token = localStorage.getItem("token");
+  const res = await fetch(
+    `http://localhost:8000/api/v1/users/search?name=${keyWord}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+  const data = res.json();
+
+  return data;
+};

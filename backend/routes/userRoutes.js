@@ -14,7 +14,7 @@ router.patch('/updatePassword', authController.updatePassword);
 router.get('/me', userController.getMe);
 router.patch('/updateMe', userController.updateMe);
 router.delete('/deleteMe', userController.deleteMe);
-//  all the routes below must be restricted to the admin or specific rules
+//  all the routes below must be restricted to the admin or specific roles
 
 // all them made using the handle factory
 

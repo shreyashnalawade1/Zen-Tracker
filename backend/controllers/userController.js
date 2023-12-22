@@ -49,12 +49,12 @@ exports.deleteMe = async (req, res, next) => {
 };
 
 exports.searchUser = async function (req, res, next) {
-  const { userName } = req.query;
+  const { name } = req.query;
   // regex does pattern matching for the given string
   // todo search ho this regex thingy works
   // i option to perform case insensistive regex check
   const users = await User.find({
-    userName: { $regex: userName, $options: 'i' },
+    name: { $regex: name, $options: 'i' },
     _id: { $ne: req.user.id },
   });
 

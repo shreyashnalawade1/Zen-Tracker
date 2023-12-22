@@ -86,7 +86,10 @@ exports.logout = function (req, res, next) {
 exports.protect = async function (req, res, next) {
   // Getting token and check of it's there
   let token;
-  if (req.cookies.jwt) {
+  const tempToken = req.get('Authorization');
+  if (tempToken) {
+    token = tempToken.split(' ')[1];
+  } else if (req.cookies.jwt) {
     token = req.cookies.jwt;
   } else {
     token = req.query.token;
