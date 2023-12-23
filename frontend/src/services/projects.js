@@ -7,9 +7,12 @@ export const getProject = async function (userId) {
 };
 
 export const createProjectApi = async function (data) {
+  const token = localStorage.getItem("token");
+
   await fetch("http://localhost:8000/api/v1/projects", {
     method: "POST",
     headers: {
+      Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
     },
     withCredentials: true,

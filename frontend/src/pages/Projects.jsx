@@ -20,14 +20,12 @@ export default function Projects() {
 
   const greeting = greet(new Date());
 
-  console.log(projects);
   return (
     <div className={styles.projectContainer}>
       <h1> {`${greeting}, ${user?.data?.user?.name}!`} </h1>
       <h2>Active Projects</h2>
       <div className={styles.projectsContainer}>
         {projects?.data?.items?.map((el, i) => {
-          console.log(el);
           return <ProjectBox key={el._id} data={el} no={i + 1}></ProjectBox>;
         })}
       </div>
@@ -38,17 +36,20 @@ export default function Projects() {
             className={styles.form}
             onSubmit={(e) => {
               e.preventDefault();
+
               if (project && discription && tags && emails) {
                 createProject({
                   projectName: project,
                   discription,
                   tags: tags.split(","),
                   //todo
-                  team: [
-                    "658118096ba0cd738144149f",
-                    "658117b46ba0cd738144149d",
-                  ],
+                  team: emails.split(","),
                 });
+                setProject("");
+                setDiscription("");
+                setTags("");
+                setEmails("");
+                setOpen(false);
               }
             }}
           >

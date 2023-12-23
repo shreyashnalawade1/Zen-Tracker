@@ -10,5 +10,9 @@
 .menu {
   margin: 0.5em;
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: center; */
   background-color: #251d3a;
 }

@@ -8,7 +8,6 @@ export default function CreateTask() {
   const [discription, setDiscription] = useState();
   const [state, setState] = useState();
   const [assign, setAssign] = useState();
-  const [project, setProject] = useState();
   const [deadline, setDeadline] = useState();
   const { createTask } = useCreateTask();
   const [tags, setTags] = useState([]);
@@ -21,7 +20,6 @@ export default function CreateTask() {
       discription &&
       state &&
       assign &&
-      project &&
       deadline &&
       tags
     ) {
@@ -32,7 +30,6 @@ export default function CreateTask() {
         priority,
         state,
         assigned: assign,
-        project,
         deadLine: deadline,
         tags,
       });
@@ -77,11 +74,7 @@ export default function CreateTask() {
           value={assign}
           onChange={(e) => setAssign(e.target.value)}
         ></input>
-        <input
-          placeholder="Project Id"
-          value={project}
-          onChange={(e) => setProject(e.target.value)}
-        ></input>
+
         <input
           placeholder="deadline"
           type="date"

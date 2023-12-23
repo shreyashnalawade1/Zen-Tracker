@@ -4,7 +4,6 @@ import { getProject } from "../services/projects";
 
 export default function useProjects() {
   const { userId } = useParams();
-  console.log(userId);
   const {
     isLoading,
     data: projects,

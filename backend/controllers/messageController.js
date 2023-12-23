@@ -24,7 +24,7 @@ exports.message = async function (req, res, next) {
 exports.getAllMessage = async function (req, res, next) {
   const messages = await Message.find({
     chat: req.params.id,
-  });
+  }).sort({ createdAt: 1 });
 
   res.status(200).json({
     status: 'success',

@@ -8,8 +8,8 @@ import ChatSearch from "../features/chats/ChatSearch";
 import ChatUI from "../features/chats/ChatUI";
 export default function Chats() {
   const { chats } = useChats();
-  const [search, setSearh] = useState();
-  const [searchUser, setSearchUser] = useState();
+  const [search, setSearh] = useState("");
+  const [searchUser, setSearchUser] = useState([]);
   const [openChat, setOpenChat] = useState("");
   const queryClient = useQueryClient();
   const { searchUsers } = useSearchUsers();
@@ -26,6 +26,7 @@ export default function Chats() {
               e.preventDefault();
               const x = queryClient.getQueryData(["searchUser"]);
               setSearchUser(x?.data?.users);
+              setSearh("");
             }}
           >
             <input
@@ -39,7 +40,7 @@ export default function Chats() {
           </form>
           <div className={styles.contactsContainer}>
             {chats?.data?.chat &&
-              !search &&
+              search.length === 0 &&
               chats?.data?.chat?.map((el) => {
                 return (
                   <ChatBox
@@ -49,16 +50,17 @@ export default function Chats() {
                   ></ChatBox>
                 );
               })}
-
-            {search &&
-              searchUser?.map((el) => (
-                <ChatSearch
-                  data={el}
-                  act={false}
-                  key={el._id}
-                  handleClick={handleClick}
-                ></ChatSearch>
-              ))}
+            {search.length != 0 &&
+              [...searchUser]?.map((el) => {
+                return (
+                  <ChatSearch
+                    data={el}
+                    act={false}
+                    key={el._id}
+                    handleClick={handleClick}
+                  ></ChatSearch>
+                );
+              })}
           </div>
         </div>
         <div className={styles.chat}>

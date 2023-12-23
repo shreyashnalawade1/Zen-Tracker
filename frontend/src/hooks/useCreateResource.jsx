@@ -1,16 +1,18 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useParams } from "react-router";
 import { createResource } from "../services/resources";
+import useUser from "./useUser";
 
 export default function useCreateResource() {
   const { groupId } = useParams();
   const queryClient = useQueryClient();
+  const {user}=useUser();
   const { mutate: createResourceFn, isLoading } = useMutation({
     mutationFn: (data) =>
       createResource({
         ...data,
         //todo
-        createdBy: "6582ce83ff8a132d8c88a886",
+        createdBy: user?.data?.user?._id,
         group: groupId,
       }),
     onSuccess: () => {

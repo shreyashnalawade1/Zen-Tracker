@@ -39,7 +39,7 @@ io.on('connection', (socket) => {
     newMessage?.chat?.users?.forEach((element) => {
       // console.log(element);
       console.log(newMessage?.chat?.sender);
-      if (element?._id == newMessage?.chat?.sender) return;
+      // if (element?._id == newMessage?.chat?.sender) return;
       socket.in(element._id).emit('recived', newMessage);
     });
   });

@@ -1,5 +1,12 @@
 export const getAllMessages = async function (chatId) {
-  const res = await fetch(`http://localhost:8000/api/v1/messages/${chatId}`);
+  const token = localStorage.getItem("token");
+
+  const res = await fetch(`http://localhost:8000/api/v1/messages/${chatId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  });
   const data = await res.json();
   return data;
 };

@@ -14,7 +14,7 @@ export default function ChatBox({ data, handleClick }) {
       className={styles.chatBoxContainer}
       onClick={() => handleClick(reciverName)}
     >
-      <span>{reciverName.name}</span>
+      <span>{reciverName?.name}</span>
 
       <span>{new Date(data?.updatedAt).toLocaleTimeString()} </span>
       <span> {data?.latestMessage?.content.slice(0, 30)}..</span>

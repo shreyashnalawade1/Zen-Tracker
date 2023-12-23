@@ -1,8 +1,11 @@
+import { useParams } from "react-router";
 import ActionBtn from "../../ui/ActionBtn";
 import styles from "./taksContainer.module.css";
 import TaskBox from "./taskBox";
 // import TaskBox from "./taskBox";
 export default function TasksContainer({ name, shbtn, data }) {
+  const { projectId } = useParams();
+
   return (
     <div className={styles.taskContainer}>
       <h2 className={styles.title}>{name}</h2>
@@ -24,7 +27,9 @@ export default function TasksContainer({ name, shbtn, data }) {
             );
           })}
       </div>
-      {shbtn && <ActionBtn txt="Add New" path={"/create-task"}></ActionBtn>}
+      {shbtn && (
+        <ActionBtn txt="Add New" path={`/create-task/${projectId}`}></ActionBtn>
+      )}
     </div>
   );
 }

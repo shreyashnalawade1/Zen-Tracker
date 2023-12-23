@@ -13,6 +13,8 @@ import ResourceHub from "./pages/ResourceHub";
 import ResourceGroup from "./pages/ResourceGroup";
 import Projects from "./pages/Projects";
 import Chats from "./pages/Chats";
+import NotFound from "./pages/NotFound";
+import Protect from "./pages/Protect";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -33,7 +35,16 @@ export default function App() {
             <Route path="login" element={<Login />}></Route>
             <Route path="signup" element={<Signup />}></Route>
 
-            <Route path="/" element={<AppLayout />}>
+            <Route
+              path="/"
+              element={
+                <Protect>
+                  <AppLayout />
+                </Protect>
+              }
+            >
+              <Route index element={<NotFound></NotFound>}></Route>
+
               <Route
                 path="resources/:projectId"
                 element={<ResourceHub></ResourceHub>}
@@ -48,13 +59,14 @@ export default function App() {
               ></Route>
               <Route path="chats" element={<Chats></Chats>}></Route>
               <Route
-                path="create-task"
+                path="create-task/:projectId"
                 element={<CreateTask></CreateTask>}
               ></Route>
               <Route path="/tasks/:projectId" element={<Tasks></Tasks>}></Route>
 
               <Route path="/task/:taskId" element={<Task></Task>}></Route>
             </Route>
+            <Route path="*" element={<NotFound></NotFound>}></Route>
           </Routes>
         </BrowserRouter>
       </QueryClientProvider>

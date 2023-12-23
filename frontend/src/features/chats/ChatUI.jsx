@@ -27,15 +27,14 @@ export default function ChatUI({ data }) {
     socket.emit("setup", user?.data?.user);
   }, [user?.data?.user]);
   useEffect(() => {
-    console.log("shreyash");
     socket.on("recived", (newMessage) => {
-      //   console.log(chat, newMessage);
       if (!chat && chat?._id !== newMessage?.chat?._id) {
         //notification
       } else {
         const fn = async () => {
           if (!chat?._id) return;
           const x = await getAllMessages(chat?._id);
+          setMessages((s) => [...s, newMessage?.message]);
           setMessages(x?.data?.messages);
           socket.emit("join room", chatId.get("chatId"));
         };
@@ -75,13 +74,16 @@ export default function ChatUI({ data }) {
         className={styles.btnContainer}
         onSubmit={(e) => {
           e.preventDefault();
-          //   console.log(sendMessage);
+          if (!sendMessage) return;
           sendMessageFn(sendMessage);
-          //   console.log(chat);
           socket.emit("new message", {
             chat,
-            sendMessage,
+            message: {
+              sender: user?._id,
+              content: sendMessage,
+            },
           });
+
           setSendMessage("");
         }}
       >
