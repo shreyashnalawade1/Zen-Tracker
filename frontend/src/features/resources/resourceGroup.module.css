@@ -1,0 +1,26 @@
+.resourceGroupContainer {
+  background-color: #faf9f6;
+  width: 25%;
+  margin: 0px 2rem;
+  padding: 1.5rem;
+  box-shadow: 1px 2px 4px black;
+  font-size: 0.8rem;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  height: 45%;
+  margin-top: 2rem;
+}
+.numFile {
+  font-weight: 400;
+  font-size: 1rem;
+  color: #5f5252;
+  font-weight: bold;
+}
+
+.upDate {
+  font-weight: 400;
+  font-size: 1rem;
+  font-weight: bold;
+
+  color: #5f5252;
+}

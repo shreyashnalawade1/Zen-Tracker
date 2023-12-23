@@ -1,0 +1,14 @@
+.container {
+  width: 90%;
+  /* height: 10%; */
+  margin: 1rem auto;
+  border-bottom: 1px solid black;
+  /* margin: auto 1rem; */
+  /* min-height: 20%; */
+  /* max-height: 20%; */
+  padding: 0.5rem;
+}
+
+.container span:first-child {
+  font-weight: bold;
+}

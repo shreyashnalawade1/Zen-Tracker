@@ -1,0 +1,31 @@
+.chatBoxContainer {
+  width: 90%;
+  /* height: 10%; */
+  margin: 1rem auto;
+  border-bottom: 1px solid black;
+  /* margin: auto 1rem; */
+  /* min-height: 20%; */
+  /* max-height: 20%; */
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  /* grid-template-rows: 2fr; */
+  /* grid-template-columns: ; */
+}
+.chatBoxContainer span:first-child {
+  font-weight: bold;
+  /* font-size: 0.8rem; */
+}
+
+.chatBoxContainer span:nth-child(2) {
+  color: #5f5252;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.chatBoxContainer span:last-child {
+  grid-column: span 2;
+  color: #5f5252;
+  font-size: 0.8rem;
+  /* font-weight: bold; */
+}

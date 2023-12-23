@@ -1,0 +1,43 @@
+.chatContainer {
+  max-height: 100vh;
+  padding: 1rem 3rem;
+  display: flex;
+
+  flex-direction: column;
+  /* flex-direction: column; */
+}
+
+.chat {
+  background-color: #faf9f6;
+  border-radius: 20px;
+  padding: 1rem;
+  border: 1px solid black;
+}
+.contacts {
+  display: flex;
+  flex-direction: column;
+}
+.Contianer {
+  flex-grow: 1;
+  display: grid;
+  height: 80%;
+  grid-template-columns: 3fr 7fr;
+  grid-template-rows: 100%;
+}
+
+.contactsContainer {
+  border: 1px solid black;
+  border-radius: 20px;
+  flex-grow: 1;
+  background-color: #faf9f6;
+  margin: 0.5rem;
+  overflow-y: scroll;
+}
+
+.contacts input {
+  width: 95%;
+  font: inherit;
+  margin: 0.5rem;
+  /* margin: 0px auto; */
+  padding: 1rem;
+}

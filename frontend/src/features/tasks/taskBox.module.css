@@ -1,0 +1,26 @@
+.taskBox {
+  width: 95%;
+  margin: 0px auto;
+  /* height: 30%; */
+  min-height: 4rem;
+  /* color: ;
+   */
+  font-weight: 600;
+  padding: 1em 2em;
+  /* border-right: ; */
+  margin-top: 2rem;
+  font-size: 0.9rem;
+
+  background-color: #d9d9d9;
+  border-radius: 10px;
+}
+
+.deadline {
+  /* font-weight: 100; */
+  font-size: 0.7rem;
+}
+
+.assigned {
+  /* font-weight: 100; */
+  font-size: 0.7rem;
+}
