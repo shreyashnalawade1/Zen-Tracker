@@ -7,12 +7,12 @@ export default function useUpdateTask() {
   const queryClient = useQueryClient();
   const { mutate: updateTask, isLoading } = useMutation({
     mutationFn: (data) => updateTaskApi({ data, taskId }),
-    onSuccess: (data) => {
+    onSuccess: () => {
       queryClient.invalidateQueries({
         active: false,
       });
 
-      console.log(data.data.item.project);
+      // console.log(data.data.item.project);
     },
   });
 

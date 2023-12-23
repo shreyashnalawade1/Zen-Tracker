@@ -9,7 +9,7 @@ export default function ResourceGroup({ data }) {
     <div
       className={styles.resourceGroupContainer}
       onClick={() => {
-        console.log(data?._id);
+        // console.log(data?._id);
         navigate(`/resource/${data?._id}`);
       }}
     >
