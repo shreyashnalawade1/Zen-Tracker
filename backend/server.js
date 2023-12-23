@@ -38,7 +38,7 @@ io.on('connection', (socket) => {
   socket.on('new message', (newMessage) => {
     newMessage?.chat?.users?.forEach((element) => {
       // console.log(element);
-      console.log(newMessage?.chat?.sender);
+      // console.log(newMessage?.chat?.sender);
       // if (element?._id == newMessage?.chat?.sender) return;
       socket.in(element._id).emit('recived', newMessage);
     });
